@@ -1,0 +1,18 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#inner-container {
+	margin-top: 20px;
+	width: 400px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
