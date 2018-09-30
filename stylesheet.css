@@ -39,9 +39,21 @@
 #results-section {
 	height: 200px;
 	overflow-y: auto;
+	border: 2px solid #CCC;
+	width: 400px;
+}
+
+#results tr {
+	width: 100%;
+	border: 1px solid #CCC;
 }
 
 #format-caption {
 	margin-top: 20px;
+}
 
+#format-go {
+	width:100px;
+	height:20px;
+	margin:15px;
 }
