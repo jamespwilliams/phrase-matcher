@@ -36,6 +36,11 @@
 	text-align: center;
 }
 
+#results-section {
+	height: 200px;
+	overflow-y: auto;
+}
+
 #format-caption {
 	margin-top: 20px;
 
