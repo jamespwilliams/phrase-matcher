@@ -1,11 +1,12 @@
 * {
 	margin: 0;
 	padding: 0;
+
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 #container {
 	display: flex;
-	align-items: center;
 	justify-content: center;
 }
 
@@ -14,5 +15,28 @@
 	width: 400px;
 	display: flex;
 	align-items: center;
+	flex-direction: column;
 	justify-content: center;
+}
+
+#inner-container h1 {
+	font-family: "Merriweather";
+	margin-bottom: 20px;
+}
+
+#format-input {
+	width: 300px;
+	height:50px;
+	font-size: 25px;
+	margin-top:15px;
+}
+
+#description {
+	margin-top: 20px;
+	text-align: center;
+}
+
+#format-caption {
+	margin-top: 20px;
+
 }
