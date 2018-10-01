@@ -11,9 +11,9 @@
 			<div id="inner-container">
 				<h1>Phrase Matcher</h1>
 
-				<caption id="format-caption">
-					Enter format here (example 3,3,3,3 or 3-6):
-				</caption>
+				<p id="format-caption">
+					Enter format below: <br/>(example <b>3,3,3,3</b> or <b>3-6</b>, see below for more)
+				</p>
 				<input id="format-input" type="text" placeholder="4,3,3">
 				<button id="format-go">Go</button>
 
@@ -25,12 +25,24 @@
 					</table>
 				</section>
 
-				<footer id="description">
-					This tool can be used to find common English phrases that match
-					a particular given pattern. This is useful for people like me who
-					haven't come across many of the phrases used in cryptic 
-					(and regular?) crosswords.
-				</footer>
+
+				<button id="show-examples">Show More Information</button>
+				<div id="examples">
+					<p>If you know certain characters, they can be inserted in place of
+						a number. '*' or '?' matches any character.<br/><br/>
+
+						For example, if you know the clue is 4, 4 and you know the second
+						letter of the second word is <b>q</b>, you can enter
+						 <b>4,?q2</b> which matches <b>damp squib</b>
+					</p>
+
+					<footer id="description">
+						This tool can be used to find common English phrases that match
+						a particular given pattern. This is useful for people like me who
+						haven't come across many of the phrases used in cryptic 
+						(and regular?) crosswords.
+					</footer>
+				</section>
 			</div>
 		</div>
 
