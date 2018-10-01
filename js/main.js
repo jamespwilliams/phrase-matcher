@@ -16,16 +16,29 @@ function getFormatRegex(formatString) {
 	if (!validator.exec(formatString)) {
 		return null;
 	}
-	
 
+	let regexString = "^";
 
-	return /^.... ... ...$/gm;
+	for (character of formatString) {
+		if (character == ',') {
+			regexString += ' ';
+			continue;
+		}
+
+		let num = parseInt(character);
+		if (!isNaN(num)) {
+			regexString += "[a-zA-Z]{" + num + "}";
+		}
+	}
+
+	regexString += "$";	
+	return new RegExp(regexString, "gmi");
 }
 
-function reloadResults() {
+function loadResultsForFormat(formatString) {
 	clearErrors();
 
-	let formatString = $("#format-input").val();
+	$("#results").empty();
 
 	let formatRegex = getFormatRegex(formatString);
 
@@ -37,12 +50,7 @@ function reloadResults() {
 	}
 
 	jQuery.get('sayings.txt', function(data) {
-
-		console.log(data);
-
 		while (match = formatRegex.exec(data)) {
-			console.log(match);
-
 			$("#results").append("<tr><td>" + match + "</td></tr>");
 
 			if (formatRegex.lastIndex == match.lastIndex) {
@@ -52,5 +60,16 @@ function reloadResults() {
 	});
 }
 
-$(document).ready(reloadResults);
+function reloadResults() {
+	let formatString = $("#format-input").val();
+
+	loadResultsForFormat(formatString);
+}
+
+function loadPlaceholderResults() {
+	loadResultsForFormat("4,3,3");
+}
+
+
+$(document).ready(loadPlaceholderResults);
 $("#format-go").on('click', reloadResults);
