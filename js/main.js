@@ -15,9 +15,11 @@ function getFormatRegex(formatString) {
 
 	if (!validator.exec(formatString)) {
 		return null;
-	} else {
-		return /^..............$/;
 	}
+	
+
+
+	return /^.... ... ...$/gm;
 }
 
 function reloadResults() {
@@ -31,14 +33,22 @@ function reloadResults() {
 
 	if (formatRegex == null) {
 		displayError("Invalid format");
+		return;
 	}
 
-	return;
-
 	jQuery.get('sayings.txt', function(data) {
-    	for (line of data.split("\n")) {
-    		$("#results").append("<tr><td>" + line + "</td></tr>");
-    	}
+
+		console.log(data);
+
+		while (match = formatRegex.exec(data)) {
+			console.log(match);
+
+			$("#results").append("<tr><td>" + match + "</td></tr>");
+
+			if (formatRegex.lastIndex == match.lastIndex) {
+				formatRegex.lastIndex++;
+			}
+		}
 	});
 }
 
